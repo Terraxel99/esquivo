@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -11,11 +9,13 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        this.rb = this.GetComponent<Rigidbody>() ?? throw new MissingComponentException("No Rigidbody on player !");
+        this.rb = this.GetComponent<Rigidbody>() 
+            ?? throw new MissingComponentException("No Rigidbody on player !");
     }
 
     void FixedUpdate()
     {
+        // Change to have a constant velocity here. It's absolutely not playable for now.
         this.rb.AddForce(new Vector3(0f, 0f, this.forwardForce * Time.deltaTime));
 
         if (Input.GetKey(KeyCode.Q)) 

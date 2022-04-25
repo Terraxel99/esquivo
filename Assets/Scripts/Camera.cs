@@ -5,19 +5,11 @@ using UnityEngine;
 public class Camera : MonoBehaviour
 {
     public Vector3 cameraOffset;
-
-    private Transform playerTransform;
-
-    void Start()
-    {
-        var playerGameObject = GameObject.Find(GameObjectConstants.playerObject) 
-            ?? throw new MissingReferenceException();
-
-        this.playerTransform = playerGameObject.transform;
-    }
+    public GameInformations gameInformations;
 
     void Update()
     {
-        this.transform.position = this.playerTransform.position + this.cameraOffset;
+        var playerTransform = this.gameInformations.Player.transform;
+        this.transform.position = playerTransform.position + this.cameraOffset;
     }
 }

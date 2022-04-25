@@ -12,7 +12,8 @@ public class PlayerCollision : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision collisionInfo)
-    {
+    {   
+        Debug.Log(collisionInfo.collider.tag);
         if (collisionInfo.collider.tag == TagConstants.obstacleTag) 
         {
             this.movementScript.enabled = false;
